@@ -50,6 +50,14 @@ buy_get_free_deals = {
     'U': ('U', 3, 1),
 }
 
+group_discounts = {
+    'S': 3,
+    'T': 3,
+    'X': 3,
+    'Y': 3,
+    'Z': 3
+}
+
 def checkout(skus):
     sku_counts = defaultdict(int)
     totalCost = 0
@@ -93,6 +101,7 @@ def use_buy_get_free_deal(sku_counts, sku, buy_get_free_deal):
     elif other_sku in sku_counts:
         free_count = (sku_counts[other_sku] // buy) * free
     sku_counts[sku] = max(0, count - free_count)
+
 
 
 
