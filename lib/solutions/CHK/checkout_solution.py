@@ -2,5 +2,14 @@
 
 # noinspection PyUnusedLocal
 # skus = unicode string
+
+skuMap = {
+    'A': 50,
+    'B': 30,
+    'C': 
+}
+
 def checkout(skus):
-    raise NotImplementedError()
+    for c in skus:
+        if c in
+
