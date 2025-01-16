@@ -30,10 +30,14 @@ class TestChk():
         assert checkout_solution.checkout("STXYZS") == 90
     def test_chkNotGroupDiscount(self):
         assert checkout_solution.checkout("TT") == 40
-    def test_chkNotGroupDiscount(self):
-        assert checkout_solution.checkout("TT") == 40
+    def test_chkGroupDiscount2(self):
+        assert checkout_solution.checkout("SSSZ") == 65
+    def test_chkGroupDiscount3(self):
+        assert checkout_solution.checkout("SSSZ") == 65
+    def test_chkGroupDiscount4(self):
+        assert checkout_solution.checkout("ZZZS") == 65
     def test_chkUpdatedPrices(self):
-        assert checkout_solution.checkout("KKKK") == 240
+        assert checkout_solution.checkout("STXZ") == 62
 
 
 TestChk().test_chkEmpty()
@@ -50,4 +54,7 @@ TestChk().test_chk5Fs()
 TestChk().test_chkGroupDiscount()
 TestChk().test_chkGroupDiscountMultiple()
 TestChk().test_chkNotGroupDiscount()
+TestChk().test_chkGroupDiscount2()
+TestChk().test_chkGroupDiscount3()
+TestChk().test_chkGroupDiscount4()
 TestChk().test_chkUpdatedPrices()
