@@ -32,6 +32,13 @@ sku_map = {
     'Z': 50
 }
 
+multi_buy_deals = {
+    'A': [(5, 200), (3, 130)],
+    'H': [(10, 80), (5, 45)],
+    'K': [(2, 150)],
+    
+}
+
 def checkout(skus):
     sku_counts = defaultdict(int)
     totalCost = 0
@@ -41,7 +48,7 @@ def checkout(skus):
         sku_counts[c] += 1
 
     if 'A' in sku_counts:
-        totalCost += calculate_A_cost(sku_counts['A'])
+        totalCost += calculate_A_cost(sku_counts['A'], 'A', [(5, 200), (3, 130)])
         del sku_counts['A']
     if 'B' in sku_counts:
         totalCost += calculate_B_cost(sku_counts['B'], sku_counts['E'])
@@ -54,16 +61,13 @@ def checkout(skus):
             totalCost += v * sku_map[k]
     return totalCost
 
-def calculate_A_cost(count, deals):
+def calculate_A_cost(count, sku, deals):
     cost = 0
     for qty, price in deals:
-    while count >= 5:
-        cost += 200
-        count -= 5
-    while count >= 3:
-        cost += 130
-        count -= 3
-    cost += count * 50
+        while count >= qty:
+            cost += price
+            count -= qty
+    cost += count * sku_map[sku]
     return cost
 
 def calculate_B_cost(free_item_sku, other_item_sku):
@@ -76,5 +80,6 @@ def calculate_F_cost(count_F):
         count_F -= 3
         cost += 2 * sku_map['F']
     return cost + count_F * sku_map['F']
+
 
 
