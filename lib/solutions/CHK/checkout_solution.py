@@ -27,9 +27,9 @@ sku_map = {
     'U': 40,
     'V': 50,
     'W': 20,
-    'X': 90,
-    'Y': 10,
-    'Z': 50
+    'X': 17,
+    'Y': 20,
+    'Z': 21
 }
 
 multi_buy_deals = {
@@ -101,5 +101,15 @@ def use_buy_get_free_deal(sku_counts, sku, buy_get_free_deal):
     elif other_sku in sku_counts:
         free_count = (sku_counts[other_sku] // buy) * free
     sku_counts[sku] = max(0, count - free_count)
+
+def use_group_discount(sku_counts, group_discounts):
+    cost = 0
+
+    for group, qty, price in group_discounts:
+        group_items = sum(sku_counts[item] for item in group if item in sku_counts)
+
+    count_groups = group_items // qty
+    cost 
+
 
 
