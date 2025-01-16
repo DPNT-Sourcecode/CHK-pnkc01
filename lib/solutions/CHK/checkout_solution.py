@@ -33,5 +33,13 @@ def checkout(skus):
     
     return totalCost
 
-def 
+def calculate_A_cost(sku_counts):
+    while 
+    return (v % 3) * sku_map[k] + (v //3) * 130
+
+
+def calculate_B_cost(sku_counts):
+    number_of_free_Bs = sku_counts['E'] // 2
+    sku_counts['B'] -= number_of_free_Bs
+    return 
 
