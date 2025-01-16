@@ -50,13 +50,7 @@ buy_get_free_deals = {
     'U': ('U', 3, 1),
 }
 
-group_discounts = {
-    'S': 3,
-    'T': 3,
-    'X': 3,
-    'Y': 3,
-    'Z': 3
-}
+group_discounts = [(['S', 'T', 'X', 'Y', 'Z'], 3, 45)]
 
 def checkout(skus):
     sku_counts = defaultdict(int)
@@ -108,8 +102,13 @@ def use_group_discount(sku_counts, group_discounts):
     for group, qty, price in group_discounts:
         group_items = sum(sku_counts[item] for item in group if item in sku_counts)
 
-    count_groups = group_items // qty
-    cost 
+        count_groups = group_items // qty
+        cost += count_groups * price
+
+        rem = group_items % qty
+        for item in group:
+            if item in sku_counts:
+
 
 
 
