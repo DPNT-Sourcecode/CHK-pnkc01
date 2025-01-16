@@ -19,6 +19,11 @@ def checkout(skus):
             return -1
         sku_counts[c] += 1
 
+    if 'A' in sku_counts:
+        totalCost += calculate_A_cost(sku_counts['A'])
+    if 'A' in sku_counts:
+
+
     for k, v in sku_counts.items():
         if k == 'A':
             totalCost += calculate_A_cost(sku_counts['A'])
@@ -42,5 +47,5 @@ def calculate_A_cost(count_A):
 
 def calculate_B_cost(count_B, count_E):
     number_of_paid_Bs = count_B - count_E // 2
-    return (number_of_paid_Bs % 2) * number_of_paid_Bs + (number_of_paid_Bs // 2) * 45
+    return (number_of_paid_Bs % 2) * 30 + (number_of_paid_Bs // 2) * 45
 
