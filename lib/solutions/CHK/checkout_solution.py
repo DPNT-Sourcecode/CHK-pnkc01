@@ -1,4 +1,4 @@
-
+from collections import defaultdict
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -12,13 +12,13 @@ skuMap = {
 
 
 def checkout(skus):
-    skuCounts = defaultDict(int)
+    skuCounts = defaultdict(int)
     totalCost = 0
     for c in skus:
         if c not in skuMap:
             return -1
         skuCounts[c] += 1
-    
+    print(skuCounts)
     for k, v in skuCounts:
         if k == 'A':
             totalCost += (v % 3) * skuMap[k] + (v //3) * 130
