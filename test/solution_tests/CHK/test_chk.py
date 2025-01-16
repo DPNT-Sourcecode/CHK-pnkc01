@@ -30,6 +30,8 @@ class TestChk():
         assert checkout_solution.checkout("STXYZS") == 90
     def test_chkNotGroupDiscount(self):
         assert checkout_solution.checkout("TT") == 40
+    def test_chkNotGroupDiscount(self):
+        assert checkout_solution.checkout("TT") == 40
     def test_chkUpdatedPrices(self):
         assert checkout_solution.checkout("KKKK") == 240
 

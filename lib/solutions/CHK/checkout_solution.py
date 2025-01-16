@@ -102,7 +102,7 @@ def use_group_discount(sku_counts, group_discounts):
     cost = 0
 
     for group, qty, price in group_discounts:
-        group_items = [(itm, sku_map[itm], sku_counts[itm]) for itm in sku_counts if itm in sku_map and sku_counts[itm] > 0]
+        group_items = [(itm, sku_map[itm], sku_counts[itm]) for itm in group if sku_counts[itm] > 0]
         group_items.sort(key=lambda x: x[1], reverse=True)
 
         total = sum(item[2] for item in group_items)
@@ -111,9 +111,13 @@ def use_group_discount(sku_counts, group_discounts):
         
         cost += count_discounts*price
 
-        
-
-
+        handle_count = count_discounts * qty
+        for i, (item, _, cnt) in enumerate(group_items):
+            if handle_count <= 0:
+                break
+            consumed = min(cnt, handle_count)
+            sku_counts[item] -= consumed
+            handle_count -= consumed
 
     # for group, qty, price in group_discounts:
     #     group_items = []
@@ -132,5 +136,6 @@ def use_group_discount(sku_counts, group_discounts):
     #         sku_counts[item] -= consumed
     #         total_itms -= consumed
     return cost
+
 
 
