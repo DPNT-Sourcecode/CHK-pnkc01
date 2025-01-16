@@ -1,4 +1,4 @@
-from solutions.HLO import hello_solution
+from lib.solutions.HLO import hello_solution
 
 
 class TestHello():
@@ -6,3 +6,4 @@ class TestHello():
         assert hello_solution.hello("John") == "Hello, John!"
 
 TestHello().test_hello()
+
