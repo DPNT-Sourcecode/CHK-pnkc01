@@ -107,13 +107,13 @@ def use_group_discount(sku_counts, group_discounts):
         count_groups = group_items // qty
         cost += count_groups * price
 
-        # rem = group_items % qty
         for item in group:
             if item in sku_counts:
                 used = min(sku_counts[item], group_items)
                 group_items -= used
                 sku_counts[item] -= used
     return cost
+
 
 
 
