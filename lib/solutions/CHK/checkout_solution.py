@@ -58,28 +58,28 @@ def checkout(skus):
             return -1
         sku_counts[c] += 1
 
-    if 'A' in sku_counts:
-        totalCost += calculate_A_cost(sku_counts['A'], 'A', [(5, 200), (3, 130)])
-        del sku_counts['A']
-    if 'B' in sku_counts:
-        totalCost += calculate_B_cost(sku_counts['B'], sku_counts['E'])
-        del sku_counts['B']
-    if 'F' in sku_counts:
-        totalCost += calculate_F_cost(sku_counts['F'])
-        del sku_counts['F']
+    # if 'A' in sku_counts:
+    #     totalCost += calculate_A_cost(sku_counts['A'], 'A', [(5, 200), (3, 130)])
+    #     del sku_counts['A']
+    # if 'B' in sku_counts:
+    #     totalCost += calculate_B_cost(sku_counts['B'], sku_counts['E'])
+    #     del sku_counts['B']
+    # if 'F' in sku_counts:
+    #     totalCost += calculate_F_cost(sku_counts['F'])
+    #     del sku_counts['F']
 
 
-    for sku, count in sku_counts.items():
-        if sku in multi_buy_deals:
-            totalCost += calculate_multibuy_cost(count, sku, multi_buy_deals[sku])
-        if sku in buy_get_free_deals:
+    # for sku, count in sku_counts.items():
+    #     if sku in multi_buy_deals:
+    #         totalCost += calculate_multibuy_cost(count, sku, multi_buy_deals[sku])
+    #     if sku in buy_get_free_deals:
             
 
 
 
-    for k, v in sku_counts.items():
-            totalCost += v * sku_map[k]
-    return totalCost
+    # for k, v in sku_counts.items():
+    #         totalCost += v * sku_map[k]
+    # return totalCost
 
 def calculate_multibuy_cost(count, sku, deals):
     cost = 0
@@ -90,10 +90,10 @@ def calculate_multibuy_cost(count, sku, deals):
     cost += count * sku_map[sku]
     return cost
 
-def calculate_buy_get_free_cost(count, sku, buy_get_free_deal):
+# def calculate_buy_get_free_cost(count, sku, buy_get_free_deal):
 
-    number_to_pay_for = free_item_sku - other_item_sku // 2
-    return (number_to_pay_for % 2) * 30 + (number_to_pay_for // 2) * 45
+#     number_to_pay_for = free_item_sku - other_item_sku // 2
+#     return (number_to_pay_for % 2) * 30 + (number_to_pay_for // 2) * 45
 
 def calculate_F_cost(count_F):
     cost = 0
@@ -101,4 +101,5 @@ def calculate_F_cost(count_F):
         count_F -= 3
         cost += 2 * sku_map['F']
     return cost + count_F * sku_map['F']
+
 
