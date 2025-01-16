@@ -25,4 +25,6 @@ def checkout(skus):
         elif k == 'B':
             totalCost += (v % 2) * skuMap[k] + (v // 2) * 45
         else:
-            
+            totalCost += v * skuMap[k]
+    
+    return totalCost
