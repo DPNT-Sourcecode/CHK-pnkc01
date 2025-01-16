@@ -18,6 +18,10 @@ def checkout(skus):
         if c not in skuMap:
             return -1
         skuCounts[c] += 1
+
+    for k, v in skuCounts.items():
+        
+
     for k, v in skuCounts.items():
         if k == 'A':
             totalCost += (v % 3) * skuMap[k] + (v //3) * 130
@@ -27,3 +31,4 @@ def checkout(skus):
             totalCost += v * skuMap[k]
     
     return totalCost
+
