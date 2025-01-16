@@ -11,7 +11,6 @@ sku_map = {
     'E': 40
 }
 
-
 def checkout(skus):
     sku_counts = defaultdict(int)
     totalCost = 0
@@ -22,11 +21,12 @@ def checkout(skus):
 
     number_of_free_Bs = sku_counts['E'] // 2
     sku_counts['B'] -= number_of_free_Bs
-
+    print(sku_counts)
     for k, v in sku_counts.items():
         if k == 'A':
             totalCost += calculate_A_cost(sku_counts)
         elif k == 'B':
+            print('B')
             totalCost += calculate_B_cost(sku_counts)
         else:
             totalCost += v * sku_map[k]
@@ -49,3 +49,4 @@ def calculate_B_cost(sku_counts):
     sku_counts['B'] -= number_of_free_Bs
     print(sku_counts['B'])
     return (sku_counts['B'] % 2) * sku_map['B'] + (sku_counts['B']  // 2) * 45
+
