@@ -107,17 +107,18 @@ def use_group_discount(sku_counts, group_discounts):
             if item in sku_counts and sku_counts[item] > 0:
                 group_items.append((item, sku_counts[item]))
 
-        total_i
+        total_itms = sum((freq for _, freq in group_items))
 
-        count_groups = group_items // qty
+        count_groups = total_itms // qty
         cost += count_groups * price
 
-        for item in group:
-            if item in sku_counts:
-                used = min(sku_counts[item], group_items)
-                group_items -= used
-                sku_counts[item] -= used
+        rem = total_itms % qty
+        for item, cnt in group_items:
+            consumed = min(cnt, total_itms - rem)
+            sku_counts[item] -= consumed
+            total_itms -= consumed
     return cost
+
 
 
 

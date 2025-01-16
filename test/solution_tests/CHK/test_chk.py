@@ -29,7 +29,6 @@ class TestChk():
     def test_chkGroupDiscountMultiple(self):
         assert checkout_solution.checkout("STXYZS") == 90
     def test_chkNotGroupDiscount(self):
-        print(checkout_solution.checkout("TT"))
         assert checkout_solution.checkout("TT") == 40
 
 
@@ -47,4 +46,5 @@ TestChk().test_chk5Fs()
 TestChk().test_chkGroupDiscount()
 TestChk().test_chkGroupDiscountMultiple()
 TestChk().test_chkNotGroupDiscount()
+
 
