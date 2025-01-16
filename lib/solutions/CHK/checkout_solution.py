@@ -69,14 +69,13 @@ def checkout(skus):
     #     del sku_counts['F']
 
 
-    for sku, count in sku_counts.items():
-        if sku in multi_buy_deals:
+    for sku, count in multi_buy_deals.items():
+        if sku in sku_counts:
             totalCost += calculate_multibuy_cost(count, sku, multi_buy_deals[sku])
-        if sku in buy_get_free_deals:
+
+    for sku, count in buy_get_free_deals.items():
+        if sku in sku_counts:
             totalCost += calculate_buy_get_free_cost(count, sku, buy_get_free_deals[sku])
-            
-
-
 
     for k, v in sku_counts.items():
             totalCost += v * sku_map[k]
@@ -100,13 +99,15 @@ def calculate_buy_get_free_cost(sku_counts, sku, buy_get_free_deal):
         free_count = (sku_counts[other_sku] // buy) * free
 
     number_to_pay_for = max(0, count - free_count)
-    return (number_to_pay_for % 2) * 30 + (number_to_pay_for // 2) * 45
+    sku_counts[sku] = number_to_pay_for
+    return number_to_pay_for * sku_map[sku]
 
-def calculate_F_cost(count_F):
-    cost = 0
-    while count_F >= 3:
-        count_F -= 3
-        cost += 2 * sku_map['F']
-    return cost + count_F * sku_map['F']
+# def calculate_F_cost(count_F):
+#     cost = 0
+#     while count_F >= 3:
+#         count_F -= 3
+#         cost += 2 * sku_map['F']
+#     return cost + count_F * sku_map['F']
+
 
 

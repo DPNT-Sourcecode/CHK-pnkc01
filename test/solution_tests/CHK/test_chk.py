@@ -24,6 +24,9 @@ class TestChk():
         assert checkout_solution.checkout("FFF") == 20
     def test_chk5Fs(self):
         assert checkout_solution.checkout("FFFFF") == 40
+    def test_chkLong1(self):
+        assert checkout_solution.checkout("AAAAA") == 40
+
 
 TestChk().test_chkEmpty()
 TestChk().test_chkInvalid()
