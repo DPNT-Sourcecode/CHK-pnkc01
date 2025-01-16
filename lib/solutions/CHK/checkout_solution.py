@@ -34,9 +34,19 @@ sku_map = {
 
 multi_buy_deals = {
     'A': [(5, 200), (3, 130)],
+    'B': [(2, 45)],
     'H': [(10, 80), (5, 45)],
     'K': [(2, 150)],
-    
+    'P': [(5, 200)],
+    'Q': [(3, 80)],
+    'V': [(3, 130), (2, 90)]
+}
+
+buy_get_free_deals = {
+    'B': ('E', 2, 1),
+    'B': ('E', 2, 1),
+    'B': ('E', 2, 1),
+    'B': ('E', 2, 1),
 }
 
 def checkout(skus):
@@ -80,6 +90,3 @@ def calculate_F_cost(count_F):
         count_F -= 3
         cost += 2 * sku_map['F']
     return cost + count_F * sku_map['F']
-
-
-
