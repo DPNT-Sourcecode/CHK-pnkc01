@@ -51,4 +51,8 @@ def calculate_B_cost(count_B, count_E):
     return (number_of_paid_Bs % 2) * 30 + (number_of_paid_Bs // 2) * 45
 
 def calculate_F_cost(count_F):
-    return 
+    cost = 0
+    while count_F >= 3:
+        count_F -= 3
+        cost += 2 * sku_map['F']
+    return cost + count_F * sku_map['F']
