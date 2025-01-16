@@ -9,7 +9,8 @@ sku_map = {
     'C': 20,
     'D': 15,
     'E': 40,
-    'F': 10
+    'F': 10,
+    
 }
 
 def checkout(skus):
