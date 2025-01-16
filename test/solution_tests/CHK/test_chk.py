@@ -15,7 +15,6 @@ class TestChk():
     def test_chkDealsGalore(self):
         assert checkout_solution.checkout("AAAAAABBBB") == 340
     def test_chk2Es1BFree(self):
-        print(checkout_solution.checkout("EEEEBB"))
         assert checkout_solution.checkout("EEEEBB") == 160
     def test_chk9As(self):
         assert checkout_solution.checkout("AAAAAAAAA") == 380
@@ -28,3 +27,4 @@ TestChk().test_chkNormal()
 TestChk().test_chkDealsGalore()
 TestChk().test_chk2Es1BFree()
 TestChk().test_chk9As()
+

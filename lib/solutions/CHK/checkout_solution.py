@@ -21,15 +21,12 @@ def checkout(skus):
 
     if 'A' in sku_counts:
         totalCost += calculate_A_cost(sku_counts['A'])
-    if 'A' in sku_counts:
-
+        del sku_counts['A']
+    if 'B' in sku_counts:
+        totalCost += calculate_B_cost(sku_counts['B'], sku_counts['E'])
+        del sku_counts['B']
 
     for k, v in sku_counts.items():
-        if k == 'A':
-            totalCost += calculate_A_cost(sku_counts['A'])
-        elif k == 'B':
-            totalCost += calculate_B_cost(sku_counts['B'], sku_counts['E'])
-        else:
             totalCost += v * sku_map[k]
     return totalCost
 
@@ -48,4 +45,5 @@ def calculate_A_cost(count_A):
 def calculate_B_cost(count_B, count_E):
     number_of_paid_Bs = count_B - count_E // 2
     return (number_of_paid_Bs % 2) * 30 + (number_of_paid_Bs // 2) * 45
+
 
