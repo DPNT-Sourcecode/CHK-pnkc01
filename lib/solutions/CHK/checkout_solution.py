@@ -44,9 +44,10 @@ multi_buy_deals = {
 
 buy_get_free_deals = {
     'B': ('E', 2, 1),
-    'B': ('E', 2, 1),
-    'B': ('E', 2, 1),
-    'B': ('E', 2, 1),
+    'F': ('F', 2, 1),
+    'M': ('N', 3, 1),
+    'Q': ('R', 3, 1),
+    'U': ('U', 3, 1),
 }
 
 def checkout(skus):
@@ -66,6 +67,12 @@ def checkout(skus):
     if 'F' in sku_counts:
         totalCost += calculate_F_cost(sku_counts['F'])
         del sku_counts['F']
+
+
+    for sku, count in sku_counts.items():
+        if sku in multi_buy_deals:
+            
+
 
     for k, v in sku_counts.items():
             totalCost += v * sku_map[k]
