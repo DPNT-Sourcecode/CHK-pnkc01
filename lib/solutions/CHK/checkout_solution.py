@@ -10,7 +10,26 @@ sku_map = {
     'D': 15,
     'E': 40,
     'F': 10,
-    
+    'G': 20,
+    'H': 10,
+    'I': 35,
+    'J': 60,
+    'K': 80,
+    'L': 90,
+    'M': 15,
+    'N': 40,
+    'O': 10,
+    'P': 50,
+    'Q': 30,
+    'R': 50,
+    'S': 30,
+    'T': 20,
+    'U': 40,
+    'V': 50,
+    'W': 20,
+    'X': 90,
+    'Y': 10,
+    'Z': 50
 }
 
 def checkout(skus):
@@ -35,7 +54,7 @@ def checkout(skus):
             totalCost += v * sku_map[k]
     return totalCost
 
-def calculate_A_cost(count_A):
+def calculate_A_cost(count):
     cost = 0
     while count_A >= 5:
         cost += 200
@@ -56,3 +75,4 @@ def calculate_F_cost(count_F):
         count_F -= 3
         cost += 2 * sku_map['F']
     return cost + count_F * sku_map['F']
+
