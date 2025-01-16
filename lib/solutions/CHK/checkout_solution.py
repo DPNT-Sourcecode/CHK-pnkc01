@@ -102,6 +102,3 @@ def use_buy_get_free_deal(sku_counts, sku, buy_get_free_deal):
         free_count = (sku_counts[other_sku] // buy) * free
     sku_counts[sku] = max(0, count - free_count)
 
-
-
-
