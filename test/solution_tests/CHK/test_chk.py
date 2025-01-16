@@ -18,8 +18,12 @@ class TestChk():
         assert checkout_solution.checkout("EEEEBB") == 160
     def test_chk9As(self):
         assert checkout_solution.checkout("AAAAAAAAA") == 380
+    def test_chk2Fs(self):
+        assert checkout_solution.checkout("FF") == 20
     def test_chk3Fs(self):
         assert checkout_solution.checkout("FFF") == 20
+    def test_chk5Fs(self):
+        assert checkout_solution.checkout("FFFFF") == 40
 
 TestChk().test_chkEmpty()
 TestChk().test_chkInvalid()
@@ -29,4 +33,6 @@ TestChk().test_chkNormal()
 TestChk().test_chkDealsGalore()
 TestChk().test_chk2Es1BFree()
 TestChk().test_chk9As()
+TestChk().test_chk2Fs()
 TestChk().test_chk3Fs()
+TestChk().test_chk5Fs()

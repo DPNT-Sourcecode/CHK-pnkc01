@@ -45,7 +45,6 @@ def calculate_A_cost(count_A):
     cost += count_A * 50
     return cost
 
-
 def calculate_B_cost(count_B, count_E):
     number_of_paid_Bs = count_B - count_E // 2
     return (number_of_paid_Bs % 2) * 30 + (number_of_paid_Bs // 2) * 45
