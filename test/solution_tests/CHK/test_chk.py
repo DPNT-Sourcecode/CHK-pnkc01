@@ -40,4 +40,3 @@ TestChk().test_chk9As()
 TestChk().test_chk2Fs()
 TestChk().test_chk3Fs()
 TestChk().test_chk5Fs()
-

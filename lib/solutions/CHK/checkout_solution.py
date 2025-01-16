@@ -58,17 +58,6 @@ def checkout(skus):
             return -1
         sku_counts[c] += 1
 
-    # if 'A' in sku_counts:
-    #     totalCost += calc(sku_counts['A'], 'A', [(5, 200), (3, 130)])
-    #     del sku_counts['A']
-    # if 'B' in sku_counts:
-    #     totalCost += calculate_B_cost(sku_counts['B'], sku_counts['E'])
-    #     del sku_counts['B']
-    # if 'F' in sku_counts:
-    #     totalCost += calculate_F_cost(sku_counts['F'])
-    #     del sku_counts['F']
-
-
     for sku, deal in buy_get_free_deals.items():
         if sku in sku_counts:
             use_buy_get_free_deal(sku_counts, sku, deal)
@@ -85,7 +74,7 @@ def checkout(skus):
 
 def calculate_multibuy_cost(count, sku, deals):
     cost = 0
-    for qty, price in deals:
+    for qty, price in sorted(deals, reverse=True):
         while count >= qty:
             cost += price
             count -= qty
@@ -101,16 +90,4 @@ def use_buy_get_free_deal(sku_counts, sku, buy_get_free_deal):
         free_count = (sku_counts[other_sku] // buy) * free
 
     sku_counts[sku] = max(0, count - free_count)
-
-# def calculate_F_cost(count_F):
-#     cost = 0
-#     while count_F >= 3:
-#         count_F -= 3
-#         cost += 2 * sku_map['F']
-#     return cost + count_F * sku_map['F']
-
-
-
-
-
 
