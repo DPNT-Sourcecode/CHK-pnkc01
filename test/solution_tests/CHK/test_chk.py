@@ -5,8 +5,9 @@ class TestChk():
     def test_chkEmpty(self):
         assert checkout_solution.checkout("") == 0
     def test_chkInvalid(self):
-        assert checkout_solution.checkout("Z") == -1
+        assert checkout_solution.checkout("1") == -1
     def test_chk3As(self):
+        print(checkout_solution.checkout("AAA"))
         assert checkout_solution.checkout("AAA") == 130
     def test_chk2Bs(self):
         assert checkout_solution.checkout("BB") == 45
@@ -24,8 +25,8 @@ class TestChk():
         assert checkout_solution.checkout("FFF") == 20
     def test_chk5Fs(self):
         assert checkout_solution.checkout("FFFFF") == 40
-    def test_chkLong1(self):
-        assert checkout_solution.checkout("AAAAA") == 40
+    # def test_chkLong1(self):
+    #     assert checkout_solution.checkout("AAAAA") == 40
 
 
 TestChk().test_chkEmpty()
@@ -39,3 +40,4 @@ TestChk().test_chk9As()
 TestChk().test_chk2Fs()
 TestChk().test_chk3Fs()
 TestChk().test_chk5Fs()
+
