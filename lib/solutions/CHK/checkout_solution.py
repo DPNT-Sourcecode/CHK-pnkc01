@@ -54,20 +54,21 @@ def checkout(skus):
             totalCost += v * sku_map[k]
     return totalCost
 
-def calculate_A_cost(count):
+def calculate_A_cost(count, deals):
     cost = 0
-    while count_A >= 5:
+    for qty, price in deals:
+    while count >= 5:
         cost += 200
-        count_A -= 5
-    while count_A >= 3:
+        count -= 5
+    while count >= 3:
         cost += 130
-        count_A -= 3
-    cost += count_A * 50
+        count -= 3
+    cost += count * 50
     return cost
 
-def calculate_B_cost(count_B, count_E):
-    number_of_paid_Bs = count_B - count_E // 2
-    return (number_of_paid_Bs % 2) * 30 + (number_of_paid_Bs // 2) * 45
+def calculate_B_cost(free_item_sku, other_item_sku):
+    number_to_pay_for = free_item_sku - other_item_sku // 2
+    return (number_to_pay_for % 2) * 30 + (number_to_pay_for // 2) * 45
 
 def calculate_F_cost(count_F):
     cost = 0
@@ -75,4 +76,5 @@ def calculate_F_cost(count_F):
         count_F -= 3
         cost += 2 * sku_map['F']
     return cost + count_F * sku_map['F']
+
 
