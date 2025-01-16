@@ -93,7 +93,7 @@ def calculate_multibuy_cost(count, sku, deals):
 
 def calculate_buy_get_free_cost(count, sku, buy_get_free_deal):
     other_sku, buy, free = buy_get_free_deal
-    number_to_pay_for = count - other_item_sku // buy
+    number_to_pay_for = count -  // buy
     return (number_to_pay_for % 2) * 30 + (number_to_pay_for // 2) * 45
 
 def calculate_F_cost(count_F):
@@ -102,3 +102,4 @@ def calculate_F_cost(count_F):
         count_F -= 3
         cost += 2 * sku_map['F']
     return cost + count_F * sku_map['F']
+
