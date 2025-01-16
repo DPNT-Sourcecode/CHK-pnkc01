@@ -102,7 +102,12 @@ def use_group_discount(sku_counts, group_discounts):
     cost = 0
 
     for group, qty, price in group_discounts:
-        group_items = sum(sku_counts[item] for item in group if item in sku_counts)
+        group_items = []
+        for item in group:
+            if item in sku_counts and sku_counts[item] > 0:
+                group_items.append((item, sku_counts[item]))
+
+        total_i
 
         count_groups = group_items // qty
         cost += count_groups * price
@@ -113,6 +118,7 @@ def use_group_discount(sku_counts, group_discounts):
                 group_items -= used
                 sku_counts[item] -= used
     return cost
+
 
 
 
