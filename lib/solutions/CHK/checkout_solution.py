@@ -102,20 +102,35 @@ def use_group_discount(sku_counts, group_discounts):
     cost = 0
 
     for group, qty, price in group_discounts:
-        group_items = []
-        for item in group:
-            if item in sku_counts and sku_counts[item] > 0:
-                group_items.append((item, sku_counts[item]))
+        group_items = [(itm, sku_map[itm], sku_counts[itm]) for itm in sku_counts if itm in sku_map and sku_counts[itm] > 0]
+        group_items.sort(key=lambda x: x[1], reverse=True)
 
-        total_itms = sum((freq for _, freq in group_items))
+        total = sum(item[2] for item in group_items)
 
-        count_groups = total_itms // qty
-        cost += count_groups * price
+        count_discounts = total // qty
+        
+        cost += count_discounts*price
 
-        rem = total_itms % qty
-        for item, cnt in group_items:
-            consumed = min(cnt, total_itms - rem)
-            sku_counts[item] -= consumed
-            total_itms -= consumed
+        
+
+
+
+    # for group, qty, price in group_discounts:
+    #     group_items = []
+    #     for item in group:
+    #         if item in sku_counts and sku_counts[item] > 0:
+    #             group_items.append((item, sku_counts[item]))
+
+    #     total_itms = sum((freq for _, freq in group_items))
+
+    #     count_groups = total_itms // qty
+    #     cost += count_groups * price
+
+    #     rem = total_itms % qty
+    #     for item, cnt in group_items:
+    #         consumed = min(cnt, total_itms - rem)
+    #         sku_counts[item] -= consumed
+    #         total_itms -= consumed
     return cost
+
 
