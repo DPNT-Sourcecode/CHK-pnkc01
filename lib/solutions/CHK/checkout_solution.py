@@ -8,7 +8,8 @@ sku_map = {
     'B': 30,
     'C': 20,
     'D': 15,
-    'E': 40
+    'E': 40,
+    'F': 10
 }
 
 def checkout(skus):
@@ -25,6 +26,9 @@ def checkout(skus):
     if 'B' in sku_counts:
         totalCost += calculate_B_cost(sku_counts['B'], sku_counts['E'])
         del sku_counts['B']
+    if 'F' in sku_counts:
+        totalCost += calculate_F_cost(sku_counts['F'])
+        del sku_counts['F']
 
     for k, v in sku_counts.items():
             totalCost += v * sku_map[k]
@@ -45,3 +49,6 @@ def calculate_A_cost(count_A):
 def calculate_B_cost(count_B, count_E):
     number_of_paid_Bs = count_B - count_E // 2
     return (number_of_paid_Bs % 2) * 30 + (number_of_paid_Bs // 2) * 45
+
+def calculate_F_cost(count_F):
+    return 
